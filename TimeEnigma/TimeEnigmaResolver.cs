@@ -21,6 +21,10 @@ namespace TimeEnigma
         private Dictionary<int,Dictionary<int,int>> solvedSeq { get; set; }
 
 
+        /**
+        * @params int?[] The sequence
+        * @params bool True for multiple solution, false for the first found
+        **/
         public TimeEnigmaResolver(int?[] _sequence, bool _multiple)
         {
             Stopwatch sw = new Stopwatch();
@@ -96,29 +100,29 @@ namespace TimeEnigma
 
         private void display(Stopwatch time)
         {
-            Console.WriteLine("La séquence était "+ string.Join(",", Sequence));
+            Console.WriteLine("The sequence was "+ string.Join(",", Sequence));
             if (solvedSeq.Count > 0)
             {
-                Console.WriteLine("Résolut en " + Try + " essais");
+                Console.WriteLine("Solved in " + Try + " trials");
                 if (Multiple)
                 {
-                    Console.WriteLine(Solved + " solutions trouvées.");
-                    Console.WriteLine("Soit, en moyenne, " + Try / Solved + " essais par solution.");
+                    Console.WriteLine(Solved + " solutions found");
+                    Console.WriteLine("Is, on average, " + Try / Solved + " trials per solution");
                 }
-                Console.WriteLine("Temps d'éxecution de " + time.Elapsed.TotalSeconds + " secondes.");
+                Console.WriteLine("Executed in " + time.Elapsed.TotalSeconds + " seconds");
 
                 Console.WriteLine("----------------------------------------------- \n");
                 foreach (var s in solvedSeq)
                 {
-                    Console.WriteLine("Position: " + string.Join(",", s.Value.Keys).Replace(",", " - "));
-                    Console.WriteLine("Nombre  : " + string.Join(",", s.Value.Values).Replace(",", " - "));
+                    Console.WriteLine("Pos: " + string.Join(",", s.Value.Keys).Replace(",", " - "));
+                    Console.WriteLine("Num: " + string.Join(",", s.Value.Values).Replace(",", " - "));
                     Console.WriteLine("\n");
                 }
             }
             else
             {
-                Console.WriteLine("Non résolut\n - " + Try + " essais.");
-                Console.WriteLine(" - " + time.Elapsed.TotalSeconds + " secondes.");
+                Console.WriteLine("Unsolved\n - " + Try + " trials.");
+                Console.WriteLine(" - " + time.Elapsed.TotalSeconds + " seconds.");
             }
         }
     }

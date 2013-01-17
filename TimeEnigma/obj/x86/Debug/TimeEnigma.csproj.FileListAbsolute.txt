@@ -6,3 +6,4 @@ H:\Server\www\Git\TimeEnigma\TimeEnigma\obj\x86\Debug\TimeEnigma.exe
 H:\Server\www\Git\TimeEnigma\TimeEnigma\obj\x86\Debug\TimeEnigma.pdb
 H:\Server\www\Git\TimeEnigma\TimeEnigma\bin\Debug\TimeEnigma.exe
 H:\Server\www\Git\TimeEnigma\TimeEnigma\bin\Debug\TimeEnigma.pdb
+H:\Server\www\Git\TimeEnigma\TimeEnigma\obj\x86\Debug\TimeEnigma.csprojResolveAssemblyReference.cache

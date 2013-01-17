@@ -18,7 +18,6 @@ namespace TimeEnigma
 
             // Ne marchera pas
             //int?[] numbers = new int?[] { 1, 2, 4, 3, 6, 2, 4, 9, 9, 2, 1, 4, 5 };
-            
 
             TimeEnigmaResolver tmr = new TimeEnigmaResolver(numbers,true);
             Console.Read();
