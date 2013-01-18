@@ -10,7 +10,7 @@ namespace TimeEnigma
     {
         public bool Multiple { get; set; }
 
-        private int?[] Sequence { get; set; }
+        private List<int> Sequence { get; set; }
 
         private int Length { get; set; }
 
@@ -25,7 +25,7 @@ namespace TimeEnigma
         * @params int?[] The sequence
         * @params bool True for multiple solution, false for the first found
         **/
-        public TimeEnigmaResolver(int?[] _sequence, bool _multiple)
+        public TimeEnigmaResolver(List<int> _sequence, bool _multiple)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
@@ -34,7 +34,7 @@ namespace TimeEnigma
             solvedSeq = l1;
 
             Sequence = _sequence;
-            Length = _sequence.Length;
+            Length = _sequence.Count;
             Multiple = _multiple;
 
             for (int i = 0; i < Length; i++)
@@ -63,7 +63,7 @@ namespace TimeEnigma
                 int toRight = (pos + _case) < Length ? (pos + _case) : (pos + _case) - Length;
                 int toLeft = (_case - pos) >= 0 ? (_case - pos) : Length - (pos - _case);
 
-                if (!_tseq.ContainsKey(toRight))
+                if (!_tseq.ContainsKey(toRight) && toRight >= 0 && toRight < Length)
                 {
                     int toPos = Convert.ToInt32(Sequence[toRight]);
                     _tseq.Add(toRight, toPos);
@@ -73,7 +73,7 @@ namespace TimeEnigma
                         return true;
                 }
 
-                if (!_tseq.ContainsKey(toLeft))
+                if (!_tseq.ContainsKey(toLeft) && toLeft >= 0 && toLeft < Length)
                 {
                     int toPos = Convert.ToInt32(Sequence[toLeft]);
                     _tseq.Add(toLeft, toPos);
@@ -100,6 +100,7 @@ namespace TimeEnigma
 
         private void display(Stopwatch time)
         {
+            Console.WriteLine("----------------------- START ------------------------");
             Console.WriteLine("The sequence was "+ string.Join(",", Sequence));
             if (solvedSeq.Count > 0)
             {
@@ -116,7 +117,6 @@ namespace TimeEnigma
                 {
                     Console.WriteLine("Pos: " + string.Join(",", s.Value.Keys).Replace(",", " - "));
                     Console.WriteLine("Num: " + string.Join(",", s.Value.Values).Replace(",", " - "));
-                    Console.WriteLine("\n");
                 }
             }
             else
@@ -124,6 +124,7 @@ namespace TimeEnigma
                 Console.WriteLine("Unsolved\n - " + Try + " trials.");
                 Console.WriteLine(" - " + time.Elapsed.TotalSeconds + " seconds.");
             }
+            Console.WriteLine("----------------------- END ------------------------\n\n");
         }
     }
 }

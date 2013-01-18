@@ -9,18 +9,30 @@ namespace TimeEnigma
     {
         static void Main(string[] args)
         {
-            // Fonctionnera
-            int?[] numbers = new int?[]{ 2, 3, 1, 4, 2, 1, 4, 2, 4, 2, 2 };
-            //int?[] numbers = new int?[] { 6, 5, 1, 4, 2, 1, 6, 4, 2, 1, 5, 2 };
-            //int?[] numbers = new int?[] { 5, 3, 3, 6, 3, 4, 3, 1, 6, 3, 3, 4, 1 };
-            //int?[] numbers = new int?[] { 1, 4, 2, 3, 4, 2, 3, 3 };
-            //int?[] numbers = new int?[] { 1, 2, 4, 3, 6, 2, 4, 1, 5, 2, 1, 4, 5 };
+            // Will Work
+            // 2, 3, 1, 4, 2, 1, 4, 2, 4, 2, 2;
+            // 6, 5, 1, 4, 2, 1, 6, 4, 2, 1, 5, 2;
 
-            // Ne marchera pas
-            //int?[] numbers = new int?[] { 1, 2, 4, 3, 6, 2, 4, 9, 9, 2, 1, 4, 5 };
+            List<int> numbers = new List<int>();
 
-            TimeEnigmaResolver tmr = new TimeEnigmaResolver(numbers,true);
-            Console.Read();
+            Console.WriteLine("TMR>Please enter a new sequence of number, separated by comma.");
+            Console.Write("TMR>");
+            string userinput = Console.ReadLine();
+            string[] sequence = userinput.Split(new char[] { ',' });
+
+            int oneNum;
+            foreach (string s in sequence)
+            {
+                if (Int32.TryParse(s, out oneNum))
+                {
+                    numbers.Add(oneNum);
+                }
+            }
+            
+            TimeEnigmaResolver tmr = new TimeEnigmaResolver(numbers, true);
+
+            Program.Main(null);
+            Console.ReadKey();
         }
     }
 }
