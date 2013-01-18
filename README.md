@@ -7,19 +7,17 @@ This a simple but efficient time enigma resolver, in c#
 How to ?
 =======
 
-Fill a new Int array.
+Launch the executable on the root dir and enter your sequence.
+Like this, for example:
 <pre>
-int?[] numbers = new int?[]{ 2, 3, 1, 4, 2, 1, 4, 2, 4, 2, 2 };
+2, 3, 1, 4, 2, 1, 4, 2, 4, 2, 2
 </pre>
 
-Launch the resolver
-<pre>
-/*
-* @params int?[] The sequence
-* @params bool True for multiple solution, false for the first found
-*/
-TimeEnigmaResolver tmr = new TimeEnigmaResolver(numbers,true);
-</pre>
+Press enter.
+
+???
+
+Profit
 
 
 All solution are right padded.
